@@ -2,7 +2,7 @@
 
 A modern, fully responsive personal portfolio website built with React, Tailwind CSS, and Framer Motion. This portfolio showcases my skills, projects, and provides a way for potential clients and employers to get in touch.
 
-![Portfolio Screenshot](https://via.placeholder.com/800x400/1e3a8a/ffffff?text=Portfolio+Screenshot)
+
 
 ## ✨ Features
 
