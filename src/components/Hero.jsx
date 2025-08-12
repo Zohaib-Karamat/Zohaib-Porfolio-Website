@@ -189,8 +189,8 @@ const Hero = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/Zohaib_Resume.pdf"
-              download
+              href="./Zohaib_Resume.pdf"
+              download="Zohaib_Resume.pdf"
               className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-300 font-medium"
             >
               <FiDownload />
