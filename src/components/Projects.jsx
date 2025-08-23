@@ -9,18 +9,75 @@ import { FiGithub, FiExternalLink, FiX } from 'react-icons/fi';
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // Sample projects data
+  // Projects data
   const projects = [
     {
       id: 1,
+      title: 'React Portfolio Website',
+      category: 'Frontend',
+      description: 'Modern, fully responsive portfolio website using React.js and Tailwind CSS to showcase projects and achievements.',
+      longDescription: 'Developed a modern, fully responsive portfolio website using React.js and Tailwind CSS to showcase my projects and achievements. Integrated EmailJS to handle contact form submissions and deliver messages directly to email without a backend. Designed with reusable components, smooth animations, and a mobile-first approach, and deployed on Vercel for optimized performance and fast global access.',
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500',
+      technologies: ['React.js', 'Tailwind CSS', 'EmailJS', 'Vercel', 'Framer Motion'],
+      githubUrl: 'https://github.com/Zohaib-Karamat/Zohaib-Porfolio-Website.git',
+      liveUrl: 'https://zohaib-porfolio-website.vercel.app/',
+      features: [
+        'Modern and clean design',
+        'Smooth animations with Framer Motion',
+        'Dark/Light theme toggle',
+        'Fully responsive design',
+        'Contact form integration with EmailJS',
+        'SEO optimized and deployed on Vercel'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Interview Conductor',
+      category: 'Frontend',
+      description: 'A Next.js web application that conducts MERN stack interview quizzes and provides feedback with learning resources.',
+      longDescription: 'Built a web application using Next.js and Tailwind CSS that conducts MERN stack interview quizzes, evaluates answers, and provides feedback with learning resources and recommendations. Deployed on Vercel for seamless access. Currently frontend-focused, with planned integration of Node.js, Express.js, and MongoDB to enable backend functionality such as question storage, candidate tracking, and result management.',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500',
+      technologies: ['Next.js', 'Tailwind CSS', 'Vercel', 'React'],
+      githubUrl: 'https://github.com/Zohaib-Karamat/Interview-Conductor-MERN-Stack.git',
+      liveUrl: 'https://interview-conductor-mern-stack.vercel.app/',
+      features: [
+        'MERN stack interview quizzes',
+        'Real-time answer evaluation',
+        'Feedback with learning resources',
+        'Recommendations for improvement',
+        'Modern UI with Tailwind CSS',
+        'Planned backend integration'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Netflix Clone',
+      category: 'Frontend',
+      description: 'Pixel-perfect, fully responsive Netflix landing page using HTML5, CSS3, and modern CSS techniques.',
+      longDescription: 'Developed a pixel-perfect, fully responsive Netflix landing page using HTML5, CSS3, and modern CSS Grid/Flexbox. Designed with a mobile-first approach, incorporating smooth animations and cross-browser compatibility to ensure seamless performance on all devices. Optimized images and CSS for fast load times, resulting in an enhanced user experience.',
+      image: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=500',
+      technologies: ['HTML5', 'CSS3', 'CSS Grid', 'Flexbox', 'Responsive Design'],
+      githubUrl: 'https://github.com/Zohaib-Karamat/Netflix-Clone.git',
+      liveUrl: 'https://netflix-clone-liard-chi.vercel.app/',
+      features: [
+        'Pixel-perfect Netflix design recreation',
+        'Fully responsive and mobile-first approach',
+        'Modern CSS Grid and Flexbox layout',
+        'Smooth animations and transitions',
+        'Cross-browser compatibility',
+        'Optimized performance and fast load times'
+      ]
+    },
+    {
+      id: 4,
       title: 'E-Commerce Platform',
       category: 'Full Stack',
-      description: 'A modern e-commerce platform built with React and Node.js',
-      longDescription: 'A comprehensive e-commerce solution featuring user authentication, product management, shopping cart functionality, payment integration, and admin dashboard. Built with React, Node.js, Express, and MongoDB.',
+      description: 'Coming Soon',
+      longDescription: 'A comprehensive e-commerce solution featuring user authentication, product management, shopping cart functionality, payment integration, and admin dashboard. Built with modern technologies for optimal performance and user experience.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      githubUrl: '#',
+      liveUrl: '#',
       features: [
         'User authentication and authorization',
         'Product catalog with search and filters',
@@ -28,101 +85,6 @@ const Projects = () => {
         'Payment integration with Stripe',
         'Admin dashboard for product management',
         'Responsive design for all devices'
-      ]
-    },
-    {
-      id: 2,
-      title: 'Task Management App',
-      category: 'Frontend',
-      description: 'A collaborative task management application with real-time updates',
-      longDescription: 'A productivity app that helps teams manage their tasks efficiently with real-time collaboration features, drag-and-drop interface, and progress tracking.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500',
-      technologies: ['React', 'TypeScript', 'Socket.io', 'Tailwind CSS'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      features: [
-        'Real-time collaboration',
-        'Drag and drop task management',
-        'Team member assignment',
-        'Progress tracking and analytics',
-        'Dark/Light theme support',
-        'Mobile responsive design'
-      ]
-    },
-    {
-      id: 3,
-      title: 'Weather Dashboard',
-      category: 'Frontend',
-      description: 'A beautiful weather application with location-based forecasts',
-      longDescription: 'An elegant weather dashboard that provides current weather conditions, 7-day forecasts, and weather maps with location-based services and beautiful animations.',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500',
-      technologies: ['React', 'API Integration', 'Charts.js', 'CSS3'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      features: [
-        'Current weather conditions',
-        '7-day weather forecast',
-        'Location-based weather data',
-        'Interactive weather maps',
-        'Weather charts and graphs',
-        'Beautiful animations and transitions'
-      ]
-    },
-    {
-      id: 4,
-      title: 'Social Media Dashboard',
-      category: 'Full Stack',
-      description: 'Analytics dashboard for social media management',
-      longDescription: 'A comprehensive social media management platform with analytics, post scheduling, and engagement tracking across multiple social platforms.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500',
-      technologies: ['React', 'D3.js', 'Node.js', 'PostgreSQL'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      features: [
-        'Multi-platform social media integration',
-        'Analytics and reporting dashboard',
-        'Post scheduling and automation',
-        'Engagement tracking and metrics',
-        'Team collaboration tools',
-        'Custom reporting and exports'
-      ]
-    },
-    {
-      id: 5,
-      title: 'Learning Management System',
-      category: 'Full Stack',
-      description: 'Educational platform for online courses and assessments',
-      longDescription: 'A complete learning management system with course creation, student enrollment, assessments, and progress tracking for educational institutions.',
-      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=500',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      features: [
-        'Course creation and management',
-        'Student enrollment and tracking',
-        'Interactive assessments and quizzes',
-        'Progress tracking and analytics',
-        'Discussion forums and messaging',
-        'Certificate generation'
-      ]
-    },
-    {
-      id: 6,
-      title: 'Portfolio Website',
-      category: 'Frontend',
-      description: 'Modern and responsive portfolio website',
-      longDescription: 'A sleek and modern portfolio website built with React and Framer Motion, featuring smooth animations, dark mode, and responsive design.',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500',
-      technologies: ['React', 'Framer Motion', 'Tailwind CSS', 'Vite'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      features: [
-        'Modern and clean design',
-        'Smooth animations with Framer Motion',
-        'Dark/Light theme toggle',
-        'Fully responsive design',
-        'Contact form integration',
-        'SEO optimized'
       ]
     }
   ];
