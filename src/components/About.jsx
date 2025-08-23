@@ -13,8 +13,9 @@ const About = () => {
       icon: FiLayout,
       skills: [
         { name: 'React', level: 90 },
+        { name: 'Html', level: 90 },
+        { name: 'CSS', level: 90 },
         { name: 'JavaScript', level: 85 },
-        { name: 'TypeScript', level: 80 },
         { name: 'Tailwind CSS', level: 88 },
         { name: 'Next.js', level: 82 }
       ]
@@ -25,7 +26,6 @@ const About = () => {
       skills: [
         { name: 'Node.js', level: 75 },
         { name: 'Express', level: 78 },
-        { name: 'Python', level: 70 },
         { name: 'REST APIs', level: 80 }
       ]
     },
@@ -33,16 +33,16 @@ const About = () => {
       title: 'Database',
       icon: FiDatabase,
       skills: [
-        { name: 'MongoDB', level: 75 },
-        { name: 'PostgreSQL', level: 70 },
-        { name: 'Firebase', level: 80 }
+        { name: 'MongoDB', level: 85 },
+        { name: 'PostgreSQL', level: 80 },
+        { name: 'Firebase', level: 75 }
       ]
     },
     {
       title: 'Tools',
       icon: FiCode,
       skills: [
-        { name: 'Git', level: 85 },
+        { name: 'Git', level: 90 },
         { name: 'Docker', level: 65 },
         { name: 'AWS', level: 60 },
         { name: 'Figma', level: 75 }
