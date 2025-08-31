@@ -13,6 +13,27 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: 'UserHub - Complete User Management System',
+      category: 'Full Stack',
+      description: 'A full-stack MERN application for comprehensive user data management with modern CRUD operations and professional UI/UX.',
+      longDescription: 'UserHub is a complete user management system built with the MERN stack featuring comprehensive CRUD operations, modern UI/UX with smooth animations, form validation with real-time feedback, toast notifications, and confirmation dialogs. The application includes loading states, comprehensive error handling, and responsive design that works seamlessly on both desktop and mobile devices.',
+      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500',
+      technologies: ['React 19.1.1', 'Node.js', 'Express.js 5.1', 'MongoDB', 'Mongoose', 'Bootstrap 5.3', 'Vite'],
+      githubUrl: 'https://github.com/Zohaib-Karamat/UserHub-Full-Stack-Web-App.git',
+      liveUrl: 'https://user-hub-full-stack-web-app-z3an.vercel.app/',
+      features: [
+        'Complete CRUD operations (Create, Read, Update, Delete)',
+        'Modern UI/UX with professional and responsive design',
+        'Form validation with real-time error feedback',
+        'Toast notifications for user-friendly messages',
+        'Confirmation dialogs for safe deletion',
+        'Loading states and enhanced UX indicators',
+        'Comprehensive error handling on client and server',
+        'Responsive design for desktop and mobile devices'
+      ]
+    },
+    {
+      id: 2,
       title: 'React Portfolio Website',
       category: 'Frontend',
       description: 'Modern, fully responsive portfolio website using React.js and Tailwind CSS to showcase projects and achievements.',
@@ -31,7 +52,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: 'Interview Conductor',
       category: 'Frontend',
       description: 'A Next.js web application that conducts MERN stack interview quizzes and provides feedback with learning resources.',
@@ -50,7 +71,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: 'Netflix Clone',
       category: 'Frontend',
       description: 'Pixel-perfect, fully responsive Netflix landing page using HTML5, CSS3, and modern CSS techniques.',
@@ -69,7 +90,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: 'E-Commerce Platform',
       category: 'Full Stack',
       description: 'Coming Soon',
