@@ -2,7 +2,106 @@ import { useState, useEffect } from 'react';
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin, FiTwitter, FiAlertCircle, FiCheckCircle } from 'react-icons/fi';
-import { initEmailJS, sendEmail, validateFormData } from '../services/emailService';
+// Inline email service to avoid environment variable issues
+const sendEmail = async (formData) => {
+  const WEB3FORMS_ACCESS_KEY = 'fe13f037-a480-4cc0-8477-dcbd78daa4e8';
+  
+  console.log('🚀 Sending email with inline Web3Forms...');
+  console.log('📋 Form data:', formData);
+
+  // Create enhanced subject line
+  const subjectLine = formData.subject 
+    ? `Portfolio Contact: ${formData.subject} - from ${formData.name}`
+    : `New Portfolio Message from ${formData.name}`;
+
+  // Create formatted message
+  const formattedMessage = `=== NEW PORTFOLIO CONTACT ===
+
+From: ${formData.name}
+Email: ${formData.email}
+Subject: ${formData.subject || 'No subject provided'}
+
+Message:
+${formData.message}
+
+---
+Sent via your portfolio website contact form
+Time: ${new Date().toLocaleString()}`;
+
+  const emailPayload = {
+    access_key: WEB3FORMS_ACCESS_KEY,
+    subject: subjectLine,
+    name: formData.name,
+    email: formData.email,
+    message: formattedMessage,
+    from_name: formData.name,
+    replyto: formData.email,
+    to: 'Zohaibwork8059@gmail.com'
+  };
+
+  try {
+    console.log('📤 Sending to Web3Forms...');
+    
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(emailPayload)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Web3Forms HTTP error: ${response.status}`);
+    }
+
+    const result = await response.json();
+    console.log('✅ Web3Forms result:', result);
+
+    if (!result.success) {
+      throw new Error(`Web3Forms failed: ${result.message}`);
+    }
+
+    return {
+      success: true,
+      message: 'Message sent successfully!',
+      service: 'Web3Forms'
+    };
+
+  } catch (error) {
+    console.error('❌ Email send error:', error);
+    return {
+      success: false,
+      message: error.message || 'Failed to send message. Please try again.',
+      service: 'error'
+    };
+  }
+};
+
+const validateFormData = (formData) => {
+  const errors = {};
+  
+  if (!formData.name?.trim()) {
+    errors.name = 'Name is required';
+  }
+  
+  if (!formData.email?.trim()) {
+    errors.email = 'Email is required';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    errors.email = 'Please enter a valid email address';
+  }
+  
+  if (!formData.message?.trim()) {
+    errors.message = 'Message is required';
+  } else if (formData.message.trim().length < 10) {
+    errors.message = 'Message must be at least 10 characters long';
+  }
+  
+  return {
+    isValid: Object.keys(errors).length === 0,
+    errors
+  };
+};
 
 /**
  * Contact section with form and social links
@@ -18,10 +117,7 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errors, setErrors] = useState({});
 
-  // Initialize EmailJS on component mount
-  useEffect(() => {
-    initEmailJS();
-  }, []);
+  // No initialization needed for alternative services
 
   // Handle input changes
   const handleChange = (e) => {

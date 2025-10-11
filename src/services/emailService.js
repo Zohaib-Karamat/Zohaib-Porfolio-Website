@@ -16,6 +16,12 @@ const EMAIL_CONFIG = {
  * Initialize EmailJS with public key
  */
 export const initEmailJS = () => {
+  console.log('Initializing EmailJS with config:', {
+    serviceId: EMAIL_CONFIG.serviceId,
+    templateId: EMAIL_CONFIG.templateId,
+    publicKey: EMAIL_CONFIG.publicKey ? EMAIL_CONFIG.publicKey.substring(0, 5) + '...' : 'undefined'
+  });
+  
   emailjs.init({
     publicKey: EMAIL_CONFIG.publicKey,
     // Do not allow headless browsers
@@ -42,6 +48,13 @@ export const initEmailJS = () => {
  */
 export const sendEmail = async (formData) => {
   try {
+    console.log('Attempting to send email with form data:', formData);
+    console.log('Using EmailJS config:', {
+      serviceId: EMAIL_CONFIG.serviceId,
+      templateId: EMAIL_CONFIG.templateId,
+      publicKey: EMAIL_CONFIG.publicKey ? 'Set' : 'Not set'
+    });
+
     // Validate required fields
     if (!formData.name || !formData.email || !formData.message) {
       throw new Error('Please fill in all required fields');
@@ -63,22 +76,34 @@ export const sendEmail = async (formData) => {
       reply_to: formData.email,
     };
 
+    console.log('Template parameters:', templateParams);
+
     const response = await emailjs.send(
       EMAIL_CONFIG.serviceId,
       EMAIL_CONFIG.templateId,
       templateParams
     );
 
+    console.log('EmailJS response:', response);
+
     if (response.status === 200) {
+      console.log('Email sent successfully!');
       return {
         success: true,
         message: 'Message sent successfully!',
       };
     } else {
+      console.error('EmailJS response error:', response);
       throw new Error('Failed to send message');
     }
   } catch (error) {
     console.error('Email sending failed:', error);
+    console.error('Error details:', {
+      name: error.name,
+      message: error.message,
+      status: error.status,
+      text: error.text
+    });
     return {
       success: false,
       message: error.message || 'Failed to send message. Please try again.',
