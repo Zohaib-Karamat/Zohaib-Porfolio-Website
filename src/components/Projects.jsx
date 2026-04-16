@@ -9,10 +9,67 @@ import { FiGithub, FiExternalLink, FiX } from 'react-icons/fi';
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
+
   // Projects data
-  const projects = [
-    {
-      id: 1,
+const projects = [
+  {
+    id: 1,
+    title: 'Maternal Mental Health Monitoring System',
+    category: 'Full Stack / AI',
+    description: 'AI-powered maternal mental health system with ML models and NLP-based suicide risk detection.',
+    longDescription: 'Developed a maternal mental health monitoring system integrating machine learning and NLP. Built models using Logistic Regression, Random Forest, and SMOTE achieving 85% accuracy on PHQ-9 dataset. Implemented suicide risk detection for Roman Urdu text to improve accessibility for low-literacy users. Integrated Whisper AI for speech-to-text and developed a Flask backend in a collaborative team environment.',
+    image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?w=500',
+    technologies: ['React', 'Tailwind CSS', 'Flask', 'Machine Learning', 'PostgreSQL', 'Whisper AI'],
+    githubUrl: 'https://github.com/Zohaib-Karamat/FYP-Frontend.git',
+    liveUrl: 'https://fyp-frontend-beta-pearl.vercel.app',
+    features: [
+      'ML models with 85% accuracy (Logistic Regression, Random Forest, SMOTE)',
+      'NLP-based suicide risk detection (Roman Urdu)',
+      'Speech-to-text integration using Whisper AI',
+      'Flask backend with API integration',
+      'Team-based development (3 developers)',
+      'Grade A (85%) FYP evaluation'
+    ]
+  },
+  {
+    id: 2,
+    title: 'SkyCast Weather Dashboard',
+    category: 'Frontend',
+    description: 'Modern weather dashboard with real-time data, forecasts, and dynamic UI.',
+    longDescription: 'Built a responsive weather dashboard using React and Vite that provides real-time weather conditions and multi-day forecasts. Implemented a custom useWeather hook to manage API states and ensure stable UI rendering. Designed a glassmorphic interface with dynamic backgrounds based on weather conditions and added localStorage support for recent searches.',
+    image: 'https://images.unsplash.com/photo-1501973801540-537f08ccae7b?w=500',
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'Axios', 'WeatherAPI'],
+    githubUrl: 'https://github.com/Zohaib-Karamat/Weather-App.git',
+    liveUrl: 'https://weather-app-seven-roan-13.vercel.app/',
+    features: [
+      'Real-time weather and multi-day forecasts',
+      'City search with geolocation support',
+      'Custom state management (useWeather)',
+      'Dynamic UI based on weather conditions',
+      'Glassmorphic modern design',
+      'Recent searches stored in localStorage'
+    ]
+  },
+  {
+    id: 3,
+    title: 'China Student Consultancy Platform',
+    category: 'Frontend',
+    description: 'Responsive consultancy platform for exploring universities, scholarships, and programs.',
+    longDescription: 'Developed responsive frontend interfaces for exploring universities, programs, scholarships, FAQs, gallery, and blog content. Designed scalable and reusable UI components and applied modern CSS techniques like Flexbox, Grid, and media queries. Also gained exposure to PHP file structure and templating.',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    githubUrl: 'https://github.com/Zohaib-Karamat/China-Consultants-Website-Internship-Project.git',
+    liveUrl: 'https://umerconsultant.dwcdesigners.online/',
+    features: [
+      'Responsive UI for multiple sections',
+      'Reusable and scalable UI components',
+      'Modern CSS (Flexbox, Grid, Media Queries)',
+      'Adaptive layouts for all devices',
+      'Exposure to PHP structure and templating'
+    ]
+  },
+  {
+      id: 4,
       title: 'UserHub - Complete User Management System',
       category: 'Full Stack',
       description: 'A full-stack MERN application for comprehensive user data management with modern CRUD operations and professional UI/UX.',
@@ -33,7 +90,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 2,
+      id: 5,
       title: 'React Portfolio Website',
       category: 'Frontend',
       description: 'Modern, fully responsive portfolio website using React.js and Tailwind CSS to showcase projects and achievements.',
@@ -52,7 +109,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 3,
+      id: 6,
       title: 'Interview Conductor',
       category: 'Frontend',
       description: 'A Next.js web application that conducts MERN stack interview quizzes and provides feedback with learning resources.',
@@ -71,7 +128,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 4,
+      id: 7,
       title: 'Netflix Clone',
       category: 'Frontend',
       description: 'Pixel-perfect, fully responsive Netflix landing page using HTML5, CSS3, and modern CSS techniques.',
@@ -90,7 +147,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 5,
+      id: 8,
       title: 'E-Commerce Platform',
       category: 'Full Stack',
       description: 'Coming Soon',
@@ -108,7 +165,8 @@ const Projects = () => {
         'Responsive design for all devices'
       ]
     }
-  ];
+];
+  
 
   // Animation variants
   const containerVariants = {
