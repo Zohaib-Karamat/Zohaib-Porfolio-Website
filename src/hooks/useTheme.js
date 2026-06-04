@@ -17,6 +17,7 @@ export const useTheme = () => {
 
   useEffect(() => {
     // Update document class and localStorage when theme changes
+    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
     if (isDark) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -26,7 +27,7 @@ export const useTheme = () => {
     }
   }, [isDark]);
 
-  const toggleTheme = () => setIsDark(!isDark);
+  const toggleTheme = () => setIsDark((prev) => !prev);
 
   return { isDark, toggleTheme };
 };

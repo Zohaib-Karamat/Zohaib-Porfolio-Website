@@ -1,222 +1,132 @@
-/* eslint-disable no-unused-vars */
-import { motion } from 'framer-motion';
-import { FiCode, FiDatabase, FiLayout, FiServer } from 'react-icons/fi';
+import { useEffect, useRef } from 'react';
+import { animate, motion, useInView, useMotionValue, useTransform } from 'framer-motion';
+import profileImage from '../assets/profile_placeholder.jpeg';
 
-/**
- * About section with profile information and skills
- */
 const About = () => {
-  // Skills data with categories
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      icon: FiLayout,
-      skills: [
-        { name: 'React', level: 90 },
-        { name: 'Html', level: 90 },
-        { name: 'CSS', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'Tailwind CSS', level: 88 },
-        { name: 'Next.js', level: 82 }
-      ]
-    },
-    {
-      title: 'Backend',
-      icon: FiServer,
-      skills: [
-        { name: 'Node.js', level: 75 },
-        { name: 'Express', level: 78 },
-        { name: 'REST APIs', level: 80 }
-      ]
-    },
-    {
-      title: 'Database',
-      icon: FiDatabase,
-      skills: [
-        { name: 'MongoDB', level: 85 },
-        { name: 'PostgreSQL', level: 80 },
-        { name: 'Firebase', level: 75 }
-      ]
-    },
-    {
-      title: 'Tools',
-      icon: FiCode,
-      skills: [
-        { name: 'Git', level: 90 },
-        { name: 'Docker', level: 65 },
-        { name: 'AWS', level: 60 },
-        { name: 'Figma', level: 75 }
-      ]
-    }
-  ];
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-      },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
-  const skillBarVariants = {
-    hidden: { width: 0 },
-    visible: (level) => ({
-      width: `${level}%`,
-      transition: {
-        duration: 1,
-        ease: 'easeOut',
-      },
-    }),
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+  };
+
+  const headingRef = useRef(null);
+  const headingInView = useInView(headingRef, { once: true, margin: '-100px' });
+
+  const stats = [
+    { value: 1, suffix: '+', label: 'Years' },
+    { value: 5, suffix: '+', label: 'Projects' },
+    { value: 1, suffix: '', label: 'Clients' },
+  ];
+
+  const StatCard = ({ value, suffix, label }) => {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, amount: 0.6 });
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, (latest) => Math.round(latest));
+
+    useEffect(() => {
+      if (inView) {
+        const controls = animate(count, value, { duration: 1.2, ease: 'easeOut' });
+        return controls.stop;
+      }
+      return undefined;
+    }, [count, inView, value]);
+
+    return (
+      <motion.div
+        ref={ref}
+        className="bg-[var(--app-elevated)] rounded-xl p-5 border border-[var(--app-border)] text-center"
+      >
+        <div className="text-3xl font-bold bg-gradient-to-r from-[#6C63FF] to-[#FF6584] bg-clip-text text-transparent">
+          <motion.span>{rounded}</motion.span>
+          {suffix}
+        </div>
+        <p className="text-sm text-[var(--app-muted)] mt-2">{label}</p>
+      </motion.div>
+    );
   };
 
   return (
-    <section
+    <motion.section
       id="about"
-      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="py-24 px-6 bg-[var(--app-surface)]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">About Me</span>
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Get to know more about who I am, what I do, and what skills I have
-            </p>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left Column - About Info */}
-            <motion.div variants={itemVariants}>
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  Who am I?
-                </h3>
-                
-                <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  <p>
-                    I'm a passionate Full Stack Developer with a strong focus on creating 
-                    exceptional digital experiences. With expertise in modern web technologies, 
-                    I enjoy turning complex problems into simple, beautiful, and intuitive solutions.
-                  </p>
-                  
-                  <p>
-                    My journey in web development started with curiosity about how websites work, 
-                    and it has evolved into a passion for creating applications that not only look 
-                    great but also provide seamless user experiences.
-                  </p>
-                  
-                  <p>
-                    I'm constantly learning and staying up-to-date with the latest technologies 
-                    and best practices in the field. I believe in writing clean, maintainable code 
-                    and following industry standards.
-                  </p>
-                </div>
-
-                {/* Personal Stats */}
-                <div className="grid grid-cols-2 gap-6 mt-8">
-                  <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                    <div className="text-2xl font-bold gradient-text">2+</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
-                  </div>
-                  <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                    <div className="text-2xl font-bold gradient-text">15+</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right Column - Skills */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                My Skills
-              </h3>
-              
-              <div className="space-y-8">
-                {skillCategories.map((category) => (
-                  <motion.div
-                    key={category.title}
-                    variants={itemVariants}
-                    className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6"
-                  >
-                    <div className="flex items-center mb-4">
-                      <category.icon className="text-primary-500 mr-3" size={24} />
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        {category.title}
-                      </h4>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      {category.skills.map((skill) => (
-                        <div key={skill.name}>
-                          <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                              {skill.name}
-                            </span>
-                            <span className="text-sm text-gray-500 dark:text-gray-400">
-                              {skill.level}%
-                            </span>
-                          </div>
-                          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                            <motion.div
-                              variants={skillBarVariants}
-                              initial="hidden"
-                              whileInView="visible"
-                              viewport={{ once: true }}
-                              custom={skill.level}
-                              className="bg-gradient-to-r from-primary-500 to-accent-500 h-2 rounded-full"
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Call to Action */}
-          <motion.div
-            variants={itemVariants}
-            className="text-center mt-16"
-          >
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-              Interested in working together? Let's create something amazing!
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-            >
-              Get In Touch
-            </motion.button>
-          </motion.div>
+      <motion.div
+        variants={containerVariants}
+        className="max-w-6xl mx-auto"
+      >
+        <motion.div variants={sectionVariants} className="text-center mb-16" ref={headingRef}>
+          <h2 className="text-3xl md:text-4xl font-bold relative inline-block">
+            <span className="bg-gradient-to-r from-[#6C63FF] to-[#FF6584] bg-clip-text text-transparent">
+              About Me
+            </span>
+            <motion.span
+              initial={{ width: 0 }}
+              animate={{ width: headingInView ? 60 : 0 }}
+              transition={{ duration: 0.6 }}
+              className="absolute left-1/2 -bottom-3 h-0.5 -translate-x-1/2 bg-[#6C63FF]"
+            />
+          </h2>
+          <p className="mt-4 text-[var(--app-muted)] max-w-2xl mx-auto">
+            Curious, detail-driven, and focused on building thoughtful interfaces that feel effortless to use.
+          </p>
         </motion.div>
-      </div>
-    </section>
+
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+          <motion.div variants={sectionVariants} className="w-full lg:w-1/2 flex justify-center">
+            <div className="relative">
+              <div className="absolute -top-8 -left-8 w-64 h-64 bg-[#6C63FF] opacity-10 blur-[80px] rounded-full -z-10" />
+              <div className="relative inline-flex items-center justify-center rounded-full p-[3px]">
+                <div className="absolute inset-0 rounded-full bg-[conic-gradient(#6C63FF,#FF6584,#6C63FF)] animate-spin-slow" />
+                <div className="relative rounded-full bg-[var(--app-bg)] p-[3px]">
+                  <img
+                    src={profileImage}
+                    alt="Zohaib"
+                    className="h-64 w-64 rounded-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={sectionVariants} className="w-full lg:w-1/2">
+            <h3 className="text-2xl font-semibold text-[var(--app-text)] mb-4">Story & Focus</h3>
+            <div className="space-y-4 text-[var(--app-muted)] leading-relaxed">
+              <p>
+                I'm a creative frontend developer who blends visual storytelling with solid engineering. I love
+                shaping ideas into immersive experiences that feel polished, clear, and human.
+              </p>
+              <p>
+                My process is equal parts design sense and technical precision, from systems thinking to the last
+                pixel. I care about usability, accessibility, and the moments that make a product memorable.
+              </p>
+              <p>
+                Whether I'm building a new brand experience or refining an existing product, I aim to bring calm
+                clarity and confident execution to every screen.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+              {stats.map((stat) => (
+                <StatCard key={stat.label} {...stat} />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </motion.section>
   );
 };
 

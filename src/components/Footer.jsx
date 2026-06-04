@@ -1,39 +1,36 @@
-/* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
-import { FiHeart } from 'react-icons/fi';
+import { Github, Linkedin } from 'lucide-react';
 
-/**
- * Simple footer component
- */
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="bg-[var(--app-surface)] border-t border-[var(--app-border)]">
+      <div className="h-px bg-gradient-to-r from-transparent via-[#6C63FF] to-transparent" />
+      <div className="max-w-7xl mx-auto px-6 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="text-center space-y-4"
         >
-          <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2">
-            © {currentYear} Made with
-            <motion.span
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            >
-              <FiHeart className="text-red-500" />
-            </motion.span>
-            by Zohaib. All rights reserved.
-          </p>
+          <p className="text-[var(--app-muted)] text-sm">© 2025 Zohaib — Built with React</p>
+          <div className="flex justify-center gap-4">
+            {[
+              { icon: Github, href: 'https://github.com/zohaib-karamat', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/zohaibkaramat/', label: 'LinkedIn' },
+            ].map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="h-10 w-10 rounded-full border border-[var(--app-border)] text-[var(--app-muted)] flex items-center justify-center transition-all duration-200 hover:border-[#6C63FF] hover:text-[var(--app-text)]"
+              >
+                <Icon size={18} />
+              </a>
+            ))}
+          </div>
         </motion.div>
       </div>
     </footer>

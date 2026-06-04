@@ -3,13 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-// Set dark mode as default on initial load
-if (!localStorage.getItem('theme')) {
-  document.documentElement.classList.add('dark');
-  localStorage.setItem('theme', 'dark');
-} else if (localStorage.getItem('theme') === 'dark') {
-  document.documentElement.classList.add('dark');
-}
+const storedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.classList.toggle('dark', storedTheme === 'dark');
+document.documentElement.dataset.theme = storedTheme;
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

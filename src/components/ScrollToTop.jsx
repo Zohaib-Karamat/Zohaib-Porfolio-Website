@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-/* eslint-disable no-unused-vars */
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiArrowUp } from 'react-icons/fi';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowUp } from 'lucide-react';
 
 /**
  * Scroll to top button component
@@ -41,10 +40,10 @@ const ScrollToTop = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-primary-500 hover:bg-primary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                className="fixed bottom-8 right-8 z-50 p-3 bg-[#6C63FF] hover:bg-[#5A52E0] text-[var(--app-text)] rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
           aria-label="Scroll to top"
         >
-          <FiArrowUp size={20} />
+          <ArrowUp size={20} />
         </motion.button>
       )}
     </AnimatePresence>
