@@ -105,16 +105,10 @@ const About = () => {
             <h3 className="text-2xl font-semibold text-[var(--app-text)] mb-4">Story & Focus</h3>
             <div className="space-y-4 text-[var(--app-muted)] leading-relaxed">
               <p>
-                I'm a creative frontend developer who blends visual storytelling with solid engineering. I love
-                shaping ideas into immersive experiences that feel polished, clear, and human.
+                I’m a full-stack developer dedicated to building polished, end-to-end web experiences. By combining robust backend systems with dynamic, user-focused frontends, I transform complex ideas into seamless digital realities.
               </p>
               <p>
-                My process is equal parts design sense and technical precision, from systems thinking to the last
-                pixel. I care about usability, accessibility, and the moments that make a product memorable.
-              </p>
-              <p>
-                Whether I'm building a new brand experience or refining an existing product, I aim to bring calm
-                clarity and confident execution to every screen.
+                From data architecture to final layout, I bring structured logic and design sensibility to every layer of the stack, ensuring products are not just functional, but memorable.
               </p>
             </div>
 
