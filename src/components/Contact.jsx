@@ -14,12 +14,12 @@ import {
 // Inline email service to avoid environment variable issues
 const sendEmail = async (formData) => {
   const WEB3FORMS_ACCESS_KEY = 'fe13f037-a480-4cc0-8477-dcbd78daa4e8';
-  
+
   console.log('🚀 Sending email with inline Web3Forms...');
   console.log('📋 Form data:', formData);
 
   // Create enhanced subject line
-  const subjectLine = formData.subject 
+  const subjectLine = formData.subject
     ? `Portfolio Contact: ${formData.subject} - from ${formData.name}`
     : `New Portfolio Message from ${formData.name}`;
 
@@ -50,7 +50,7 @@ Time: ${new Date().toLocaleString()}`;
 
   try {
     console.log('📤 Sending to Web3Forms...');
-    
+
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {
@@ -89,23 +89,23 @@ Time: ${new Date().toLocaleString()}`;
 
 const validateFormData = (formData) => {
   const errors = {};
-  
+
   if (!formData.name?.trim()) {
     errors.name = 'Name is required';
   }
-  
+
   if (!formData.email?.trim()) {
     errors.email = 'Email is required';
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
     errors.email = 'Please enter a valid email address';
   }
-  
+
   if (!formData.message?.trim()) {
     errors.message = 'Message is required';
   } else if (formData.message.trim().length < 10) {
     errors.message = 'Message must be at least 10 characters long';
   }
-  
+
   return {
     isValid: Object.keys(errors).length === 0,
     errors
@@ -135,7 +135,7 @@ const Contact = () => {
       ...formData,
       [name]: value
     });
-    
+
     // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors({
@@ -148,7 +148,7 @@ const Contact = () => {
   // Handle form submission with real email functionality
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validate form data
     const validation = validateFormData(formData);
     if (!validation.isValid) {
@@ -159,14 +159,14 @@ const Contact = () => {
 
     setIsSubmitting(true);
     setErrors({});
-    
+
     try {
       const result = await sendEmail(formData);
-      
+
       if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
-        
+
         // Reset status after 5 seconds
         setTimeout(() => setSubmitStatus(null), 5000);
       } else {
@@ -187,8 +187,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'Zohaibwork8059@gmail.com',
-      href: 'mailto:Zohaibwork8059@gmail.com'
+      value: 'juttzohaib875@gmail.com',
+      href: 'mailto:juttzohaib875@gmail.com'
     },
     {
       icon: Phone,
@@ -273,8 +273,8 @@ const Contact = () => {
                 Let's talk about everything!
               </h3>
               <p className="text-[var(--app-muted)] mb-8 leading-relaxed">
-                Don't hesitate to reach out to me if you have any questions or if you're 
-                interested in working together. I'm always open to discussing new opportunities 
+                Don't hesitate to reach out to me if you have any questions or if you're
+                interested in working together. I'm always open to discussing new opportunities
                 and projects.
               </p>
 
