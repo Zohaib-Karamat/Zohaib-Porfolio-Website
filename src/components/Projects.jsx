@@ -33,6 +33,27 @@ const Projects = () => {
     },
     {
       id: 2,
+      title: 'AI ATS Analyzer Platform',
+      category: 'Full Stack / AI',
+      description: 'AI-powered ATS analyzer that evaluates resumes against job descriptions and provides compatibility feedback.',
+      longDescription:
+        'Built a full-stack AI-powered ATS analyzer that evaluates uploaded resumes against job descriptions and provides ATS compatibility feedback using the Gemini API. Integrated the Gemini API to generate personalized cover letters by matching resumes with job descriptions and exporting professionally formatted PDF documents. Developed a secure dashboard with JWT authentication, resume management, AI analysis history, and class-based dark mode support. Implemented OTP verification and password reset workflows using Resend email services with a custom domain for secure user authentication.',
+      image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Gemini API', 'Resend'],
+      githubUrl: 'https://github.com/Zohaib-Karamat/ats-resume-analyzer-frontend.git',
+      liveUrl: 'https://ats-resume-analyzer-frontend-three.vercel.app/',
+      featured: true,
+      features: [
+        'AI-powered ATS resume evaluation using Gemini API',
+        'Personalized cover letter generation with PDF export',
+        'Secure dashboard with JWT authentication',
+        'Resume management and AI analysis history',
+        'Class-based dark mode support',
+        'OTP verification and password reset via Resend',
+      ],
+    },
+    {
+      id: 3,
       title: 'SkyCast Weather Dashboard',
       category: 'Frontend',
       description: 'Modern weather dashboard with real-time data, forecasts, and dynamic UI.',
@@ -53,7 +74,7 @@ const Projects = () => {
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: 'China Student Consultancy Platform',
       category: 'Frontend',
       description: 'Responsive consultancy platform for exploring universities, scholarships, and programs.',
@@ -72,7 +93,7 @@ const Projects = () => {
       ],
     },
     {
-      id: 4,
+      id: 5,
       title: 'UserHub - Complete User Management System',
       category: 'Full Stack',
       description:
@@ -95,7 +116,7 @@ const Projects = () => {
       ],
     },
     {
-      id: 5,
+      id: 6,
       title: 'React Portfolio Website',
       category: 'Frontend',
       description:
@@ -116,7 +137,7 @@ const Projects = () => {
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: 'Interview Conductor',
       category: 'Frontend',
       description:
@@ -137,7 +158,7 @@ const Projects = () => {
       ],
     },
     {
-      id: 7,
+      id: 8,
       title: 'Netflix Clone',
       category: 'Frontend',
       description: 'Pixel-perfect, fully responsive Netflix landing page using HTML5, CSS3, and modern CSS techniques.',
@@ -157,7 +178,7 @@ const Projects = () => {
       ],
     },
     {
-      id: 8,
+      id: 9,
       title: 'E-Commerce Platform',
       category: 'Full Stack',
       description: 'Coming Soon',
