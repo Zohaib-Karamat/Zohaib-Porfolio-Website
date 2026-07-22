@@ -369,7 +369,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="text-[#9090A8] text-sm mb-1 block"
+                      className="text-[var(--app-muted)] text-sm mb-1 block"
                     >
                       Email Address *
                     </label>
@@ -380,7 +380,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className={`w-full bg-[#0A0A0F] border border-[#2A2A3A] rounded-xl px-4 py-3 text-[#F0F0FF] placeholder-[#9090A8] text-sm focus:outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF30] transition-all duration-200 ${
+                      className={`w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-3 text-[var(--app-text)] placeholder-[var(--app-muted)] text-sm focus:outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF30] transition-all duration-200 ${
                         errors.email ? 'border-red-500' : ''
                       }`}
                       placeholder="your.email@example.com"
