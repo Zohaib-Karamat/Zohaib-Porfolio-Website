@@ -280,7 +280,7 @@ const Projects = () => {
                 key={project.id}
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ duration: 0.2 }}
-                className="group bg-[var(--app-elevated)] rounded-2xl overflow-hidden border border-[var(--app-border)] cursor-pointer transition-all duration-200 hover:border-[#6C63FF] hover:shadow-[0_0_30px_rgba(108,99,255,0.13)]"
+                className="group flex flex-col h-full bg-[var(--app-elevated)] rounded-2xl overflow-hidden border border-[var(--app-border)] cursor-pointer transition-all duration-200 hover:border-[#6C63FF] hover:shadow-[0_0_30px_rgba(108,99,255,0.13)]"
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative overflow-hidden">
@@ -321,16 +321,20 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="p-5 space-y-4">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-[var(--app-muted)] mb-2">
-                      {project.category}
-                    </p>
-                    <h3 className="text-lg font-semibold text-[var(--app-text)] mb-2">{project.title}</h3>
-                    <p className="text-sm text-[var(--app-muted)] line-clamp-2">{project.description}</p>
-                  </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--app-muted)] mb-2">
+                    {project.category}
+                  </p>
+                  
+                  <h3 className="text-lg font-semibold text-[var(--app-text)] mb-2">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-sm text-[var(--app-muted)] line-clamp-2 mb-4">
+                    {project.description}
+                  </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
