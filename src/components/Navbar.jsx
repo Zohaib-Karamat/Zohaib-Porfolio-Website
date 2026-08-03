@@ -67,7 +67,7 @@ const Navbar = () => {
             onClick={() => scrollToSection('#home')}
             className="text-xl font-bold bg-gradient-to-r from-[#6C63FF] to-[#FF6584] bg-clip-text text-transparent"
           >
-            Zohaib
+            Zohaib Karamat
           </button>
 
           <div className="hidden md:flex items-center space-x-8">
