@@ -11,6 +11,43 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 10,
+      title: 'WorkPulse Employee Management System',
+      category: 'Full Stack',
+      description: 'Comprehensive employee management and attendance platform with configurable rules and contract management.',
+      longDescription: 'Developed a comprehensive employee management and attendance platform enabling organizations to manage employees, contracts, attendance, salaries, and paid leaves. Built dynamic attendance rules with location-based validation, contract-based salary structures, and administrative controls. Implemented secure authentication and role-based access control using Better Auth.',
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500',
+      technologies: ['React', 'Nest.js', 'PostgreSQL', 'Better Auth'],
+      githubUrl: '#',
+      liveUrl: 'https://wp.senew-tech.com/',
+      featured: true,
+      features: [
+        'Comprehensive employee and contract management',
+        'Configurable attendance rules with location validation',
+        'Contract-based salary and paid leave allocations',
+        'Administrative control and reporting features',
+        'Secure RBAC with Better Auth (employees, sub-admins, admins)',
+      ],
+    },
+    {
+      id: 11,
+      title: 'Nomad Recruitment Platform',
+      category: 'Full Stack',
+      description: 'Full-stack recruitment platform with portals for recruiters, agencies, companies, and candidates.',
+      longDescription: 'Worked on a full-stack recruitment platform resolving functional and UI issues across multiple portals. Investigated and fixed bugs related to subscriptions, job management, interviews, payments, and localization. Developed React frontend features integrated with Nest.js REST APIs and PostgreSQL database services.',
+      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=500',
+      technologies: ['React', 'Nest.js', 'PostgreSQL', 'REST APIs'],
+      githubUrl: '#',
+      liveUrl: 'http://nm.senew-tech.com/',
+      featured: true,
+      features: [
+        'Portals for recruiters, agencies, companies, and candidates',
+        'Job management, subscriptions, and interview tracking',
+        'React frontend integration with Nest.js REST APIs',
+        'Collaborative agile development with Git',
+      ],
+    },
+    {
       id: 1,
       title: 'Maternal Mental Health Monitoring System',
       category: 'Full Stack / AI',

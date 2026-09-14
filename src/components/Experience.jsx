@@ -7,7 +7,7 @@ const experiences = [
     role: 'Full Stack Developer',
     company: 'Senew Tech',
     location: 'Lahore, Pakistan',
-    period: 'Jun 2026 – Present',
+    period: 'Jun 2026 – Sep 2026',
     type: 'Full-time', // Feel free to change to 'Contract' or 'Part-time' if applicable
     bullets: [
       'Engineered and maintained robust full-stack web applications utilizing the MERN stack alongside Next.js and Nest.js within a high-performing development team.',
