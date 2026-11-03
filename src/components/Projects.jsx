@@ -362,11 +362,11 @@ const Projects = () => {
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--app-muted)] mb-2">
                     {project.category}
                   </p>
-                  
+
                   <h3 className="text-lg font-semibold text-[var(--app-text)] mb-2">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-sm text-[var(--app-muted)] line-clamp-2 mb-4">
                     {project.description}
                   </p>
@@ -388,7 +388,7 @@ const Projects = () => {
         </AnimatePresence>
       </motion.div>
 
-        <AnimatePresence>
+      <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
